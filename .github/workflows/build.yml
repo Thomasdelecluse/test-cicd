@@ -35,6 +35,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    needs: build
     steps:
       - uses: actions/checkout@v3
       - name: Restore Cache
@@ -44,8 +45,6 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: cypress install
-        run: npm install cypress
       - name: test end to end
         run: npm run e2e:headless
 
