@@ -25,4 +25,4 @@ jobs:
         run: npm run build
 
       - name: test end to end
-        run: npm run e2e:handless
+        run: npm run e2e:headless
