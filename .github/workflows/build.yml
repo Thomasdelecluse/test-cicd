@@ -33,17 +33,17 @@ jobs:
       - name: Build Next.js App
         run: npm run build
 
-    test:
-      runs-on: ubuntu-latest
-      steps:
-        - uses: actions/checkout@v3
-        - name: test end to end
-          run: npm run e2e:headless
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: test end to end
+        run: npm run e2e:headless
 
-        - name: Create Artifact
-          uses: actions/upload-artifact@3
-          if: ${{ always() }}
-          with:
-            name: my-video
-            path: cypress/videos
+      - name: Create Artifact
+        uses: actions/upload-artifact@3
+        if: ${{ always() }}
+        with:
+          name: my-video
+          path: cypress/videos
 
