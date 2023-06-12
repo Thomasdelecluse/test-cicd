@@ -13,6 +13,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v2
 
+      - name: Cache Node.js
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -29,7 +37,7 @@ jobs:
 
       - name: Create Artifact
         uses: actions/upload-artifact@v2
-        if: ${{ always() }} 
+        if: ${{ always() }}
         with:
           name: my-video
           path: cypress/videos
