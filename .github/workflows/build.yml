@@ -29,6 +29,7 @@ jobs:
 
       - name: Create Artifact
         uses: actions/upload-artifact@v2
+        if: always()
         with:
           name: my-video
           path: cypress/videos
