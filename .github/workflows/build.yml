@@ -41,7 +41,7 @@ jobs:
         run: npm run e2e:headless
 
       - name: Create Artifact
-        uses: actions/upload-artifact@3
+        uses: actions/upload-artifact@v3
         if: ${{ always() }}
         with:
           name: my-video
