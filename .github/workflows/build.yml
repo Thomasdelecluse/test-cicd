@@ -44,7 +44,8 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-            
+      - name: cypress install
+        run: npm cypress install
       - name: test end to end
         run: npm run e2e:headless
 
