@@ -26,3 +26,9 @@ jobs:
 
       - name: test end to end
         run: npm run e2e:headless
+
+      - name: Create Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: my-artifact
+          path: path/to/artifact
