@@ -45,7 +45,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
       - name: cypress install
-        run: npm cypress install
+        run: npm install cypress
       - name: test end to end
         run: npm run e2e:headless
 
