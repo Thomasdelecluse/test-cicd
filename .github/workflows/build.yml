@@ -74,3 +74,4 @@ jobs:
             echo "Connected to the server via SSH"
             # Add your desired commands here
             # Example: npm run build
+            pm2 restart 0
