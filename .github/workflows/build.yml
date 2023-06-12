@@ -54,3 +54,22 @@ jobs:
         with:
           name: my-video
           path: cypress/videos
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: SSH to Server
+        uses: appleboy/ssh-action@master
+        with:
+          host: 54.172.175.18
+          username: ubuntu
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+          # Optional: If you need to execute specific commands on the server
+          script: |
+            echo "Connected to the server via SSH"
+            # Add your desired commands here
+            # Example: npm run build
