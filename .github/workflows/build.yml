@@ -74,6 +74,6 @@ jobs:
             echo "Connected to the server via SSH"
             # Add your desired commands here
             # Example: npm run build
-            cd /home/ubuntu/test-cicd
+            cd /test-cicd
             git pull
             pm2 restart 0
