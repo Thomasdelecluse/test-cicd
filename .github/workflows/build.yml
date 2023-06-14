@@ -54,6 +54,7 @@ jobs:
         with:
           name: my-video
           path: cypress/videos
+
   docker:
     needs: test
     runs-on: ubuntu-latest
@@ -96,3 +97,4 @@ jobs:
             docker rm test-cicd
             docker pull ghcr.io/thomasdelecluse/test-cicd:latest
             docker run -d --name test-cicd -p 3001:3000 ghcr.io/thomasdelecluse/test-cicd:latest
+            docker run --name mariadbdatabase -e MYSQL_ROOT_PASSWORD=pass -p 3306:3306 -d mariadb:latest
